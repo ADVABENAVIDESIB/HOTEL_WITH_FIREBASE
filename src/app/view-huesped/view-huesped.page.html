@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/list-huesped" text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>Descripción del Huesped</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card class="ion-text-center">
+    <ion-card-header>
+      <ion-card-title>El huesped: {{huesped.nombre}}</ion-card-title>
+    </ion-card-header>
+    <ion-row >
+      <ion-chip color="primary">
+        <ion-label>Habitacion numero:{{huesped.habitacion}}</ion-label>
+      </ion-chip>
+    </ion-row>
+    <ion-row >
+
+      <ion-chip color="primary">
+        <ion-label>Fecha Ingreso: {{huesped.fingreso}}</ion-label>
+        <br>
+      </ion-chip>
+    </ion-row>
+
+    <ion-row >
+
+      <ion-chip color="primary">
+        <ion-label>Fecha Salida: {{huesped.fegreso}}</ion-label>
+        <br>
+      </ion-chip>
+    </ion-row>
+
+    <ion-row >
+      <ion-label>Enviar Token de seguridad al huesped</ion-label>
+      <ion-chip color="primary">
+        <ion-button href="{{url}}" color="success">
+          <ion-icon name = "logo-whatsapp">
+          </ion-icon>
+        </ion-button>
+      </ion-chip>
+    </ion-row>
+  </ion-card>
+</ion-content>

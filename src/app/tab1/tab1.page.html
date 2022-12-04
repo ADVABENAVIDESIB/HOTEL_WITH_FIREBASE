@@ -1,0 +1,76 @@
+<ion-header [translucent]="true">
+  <ion-buttons slot="start">
+    <ion-back-button></ion-back-button>
+  </ion-buttons>
+  <ion-toolbar>
+    <ion-title>
+      {{this.reglamentoT}}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content [fullscreen]="true">
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-button (click)="changeLang('es')">ES</ion-button>
+        <ion-button (click)="changeLang('en')">EN</ion-button>
+        <ion-button (click)="changeLang('fr')">FR</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-card color="light">
+    <ion-card-header>
+      <ion-card-title>{{this.horarioT}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>{{this.horario}}</ion-card-content>
+  </ion-card>
+  <ion-card color="light">
+    <ion-card-header>
+      <ion-card-title>{{this.registroT}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>{{this.registro}}</ion-card-content>
+  </ion-card>
+  <ion-card color="light">
+    <ion-card-header>
+      <ion-card-title>{{this.toallasT}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>{{this.toallas}}</ion-card-content>
+  </ion-card>
+  <ion-card color="light">
+    <ion-card-header>
+      <ion-card-title>{{this.alimentosT}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>{{this.alimentos}}</ion-card-content>
+  </ion-card>
+  <ion-card color="light">
+    <ion-card-header>
+      <ion-card-title>{{this.roomserviceT}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>{{this.roomservice}}</ion-card-content>
+  </ion-card>
+  <ion-card color="light">
+    <ion-card-header>
+      <ion-card-title>{{this.horarioSilencioT}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>{{this.horarioSilencio}}</ion-card-content>
+  </ion-card>
+  <ion-card color="light">
+    <ion-card-header>
+      <ion-card-title>{{this.danoT}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>{{this.dano}}</ion-card-content>
+  </ion-card>
+  <ion-card color="light">
+    <ion-card-header>
+      <ion-card-title>{{this.alojamientoT}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>{{this.alojamiento}}</ion-card-content>
+  </ion-card>
+  <ion-card color="light">
+    <ion-card-header>
+      <ion-card-title>{{this.estanciaT}}</ion-card-title>
+    </ion-card-header>
+  </ion-card>
+</ion-content>

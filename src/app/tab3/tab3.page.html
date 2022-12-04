@@ -1,0 +1,79 @@
+<ion-header [translucent]="true">
+  <ion-buttons slot="start">
+    <ion-back-button></ion-back-button>
+  </ion-buttons>
+  <ion-toolbar>
+    <ion-title>
+      {{this.act}}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-button (click)="changeLang('es')">ES</ion-button>
+        <ion-button (click)="changeLang('en')">EN</ion-button>
+        <ion-button (click)="changeLang('fr')">FR</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-accordion-group>
+    <ion-accordion value="uno">
+      <ion-item slot="header" color="light">
+        <ion-label>{{this.historiaT}}</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
+        <div class="center">
+            <img style="float:left; margin:10px;" src="https://www.mexicodesconocido.com.mx/wp-content/uploads/2021/08/RemoteMediaFile_6553916_0_2021_08_16_11_48_44-900x506.jpg" width="300px" height="300px"> 
+            <h4>{{this.historia}}</h4>
+        </div>
+      </div>
+    </ion-accordion>
+    <ion-accordion value="dos">
+      <ion-item slot="header" color="light">
+        <ion-label>{{this.actividadesT}}</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
+        <div class="center">
+            <img style="float:left; margin:10px;" src=" http://2.bp.blogspot.com/--fvcWqDTZhY/UePjQb0HEiI/AAAAAAAAZEI/-MR6Ebr7CFY/s1600/punta+allen+barca.JPG" width="300px" height="300px">
+          <h4>{{this.actividades}}</h4>
+        </div>
+      </div>
+    </ion-accordion>
+    <ion-accordion value="tres">
+      <ion-item slot="header" color="light">
+        <ion-label>{{this.recomendacionesT}}</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
+        <div class="center">
+            <img style="float:left; margin:10px;" src="https://gentenayarit.com/wp-content/uploads/2019/12/Cascada-de-la-Silla-1024x576.jpg" width="300px" height="300px">         
+          <h4>{{this.recomendaciones}}</h4>
+        </div>
+      </div>
+    </ion-accordion>
+    <ion-accordion value="cuarto">
+      <ion-item slot="header" color="light">
+        <ion-label>{{this.lagunaT}}</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
+        <div class="center">
+            <img style="float:left; margin:10px;" src="https://www.lugaresturisticosenmexico.com/wp-content/uploads/2022/05/Santa-Maria-del-Oro-Nayarit-Mirador.jpeg" width="300px" height="300px" >
+          <h4>{{this.laguna}}</h4>
+        </div>
+      </div>
+    </ion-accordion>
+    <ion-accordion value="cinco">
+      <ion-item slot="header" color="light">
+        <ion-label>{{this.numerosEmerT}}</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
+        <div class="center">
+          <h3>{{this.numerosEmer}}</h3>
+        </div>
+      </div>
+    </ion-accordion>
+
+  </ion-accordion-group>
+</ion-content>

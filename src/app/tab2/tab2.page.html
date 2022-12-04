@@ -1,0 +1,70 @@
+<ion-header [translucent]="true">
+  <ion-buttons slot="start">
+    <ion-back-button></ion-back-button>
+  </ion-buttons>
+  <ion-toolbar>
+    <ion-title>
+      {{this.act}}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true"  *ngIf="show">
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-button (click)="changeLang('es')">ES</ion-button>
+        <ion-button (click)="changeLang('en')">EN</ion-button>
+        <ion-button (click)="changeLang('fr')">FR</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-accordion-group>
+    <ion-accordion value="uno">
+      <ion-item slot="header" color="light">
+        <ion-label>{{this.ingresoAT}}</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
+        <div class="center">
+            <img style="float:left; margin:10px;" src="https://images.fineartamerica.com/images/artworkimages/mediumlarge/2/stanley-hotel-hallway-elaine-webster.jpg" width="300px" height="300px">
+          <h4>{{this.ingresoA}}</h4>
+          {{this.aporteRemain}}
+        </div>
+      </div>
+    </ion-accordion>
+    <ion-accordion value="dos">
+      <ion-item slot="header" color="light">
+        <ion-label>{{this.hotelUT}}</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
+        <div class="center">
+            <img style="float:left; margin:10px;"src=" https://i.pinimg.com/originals/20/81/94/208194e48928908e33da0b0e2f1a0647.jpg" width="300px" height="300px">
+          <h4>{{this.hotelU}}</h4>
+        </div>
+      </div>
+    </ion-accordion>
+    <ion-accordion value="tres">
+      <ion-item slot="header" color="light">
+        <ion-label>{{this.horarioHT}}</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
+        <div class="center">
+            <img style="float:left; margin:10px;" src="https://www.ige2.com/wp-content/uploads/2020/10/cambio-de-hora.jpg" width="300px" height="300px">         
+          <h4>{{this.horarioH}}</h4>
+        </div>
+      </div>
+    </ion-accordion>
+    <ion-accordion value="cuarto">
+      <ion-item slot="header" color="light">
+        <ion-label>{{this.cajaST}}</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
+        <div class="center">
+            <img style="float:left; margin:10px;" src="https://kechollazo.com/wp-content/uploads/2015/02/caja_seguridad_hierro.jpg" width="300px" height="300px" >
+          <h4>{{this.cajaS}}</h4>
+        </div>
+      </div>
+    </ion-accordion>
+  </ion-accordion-group>
+
+</ion-content>

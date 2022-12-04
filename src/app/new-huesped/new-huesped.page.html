@@ -1,0 +1,165 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Añadir Huesped edit</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <form [formGroup]="hueForm">
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label position="floating">Nombre</ion-label>
+            <!--ion-input [(ngModel)]="huesped.nombre"></!--ion-input-->
+            <ion-input formControlName="nombre"></ion-input>
+          </ion-item>
+          <div>
+            <ng-container *ngFor="let item of valMessage['nombre']">
+              <div
+                class="errorMessage"
+                *ngIf="(hueForm.get('nombre').dirty || hueForm.get('nombre').touched) 
+                && hueForm.get('nombre').hasError(item.type)"
+              >
+                {{item.message}}
+              </div>
+            </ng-container>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label position="floating">Telefono</ion-label>
+            <ion-input formControlName="telefono"></ion-input>
+          </ion-item>
+          <div>
+            <ng-container *ngFor="let item of valMessage['telefono']">
+              <div
+                class="errorMessage"
+                *ngIf="(hueForm.get('telefono').dirty || hueForm.get('telefono').touched) && hueForm.get('telefono').hasError(item.type)"
+              >
+                {{item.message}}
+              </div>
+            </ng-container>
+          </div>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-list>
+            <ion-item>
+              <ion-select
+                formControlName="habitacion"
+                placeholder="Selecciona habitacion"
+                id="habitacion"
+              >
+                <ion-select-option value="1">Cuarto 1 ($500)</ion-select-option>
+                <ion-select-option value="2">Cuarto 2 ($250)</ion-select-option>
+                <ion-select-option value="3">Cuarto 3 ($100)</ion-select-option>
+                <ion-select-option value="4">Cuarto 4 ($1500)</ion-select-option>
+                <ion-select-option value="5">Cuarto 5 ($2000)</ion-select-option>
+                <ion-select-option value="6">Cuarto 6 ($500)</ion-select-option>
+                <ion-select-option value="7">Cuarto 7 ($2500)</ion-select-option>
+                <ion-select-option value="8">Cuarto 8 ($750)</ion-select-option>
+                <ion-select-option value="9">Cuarto 9 ($800)</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label position="floating">Aporte</ion-label>
+            <ion-input formControlName="aporte"></ion-input>
+          </ion-item>
+          <div>
+            <ng-container *ngFor="let item of valMessage['aporte']">
+              <div
+                class="errorMessage"
+                *ngIf="(hueForm.get('aporte').dirty || hueForm.get('aporte').touched) && hueForm.get('aporte').hasError(item.type)"
+              >
+                {{item.message}}
+              </div>
+            </ng-container>
+          </div>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-list>
+            <ion-item>
+              <ion-select formControlName="rol" placeholder="Selecciona rol">
+                <ion-select-option value="1">HUESPED</ion-select-option>
+                <ion-select-option value="2">ADMINISTRADOR</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label position="floating">Fecha de Ingreso</ion-label>
+            <ion-datetime
+              size="cover"
+              presentation="date"
+              min="{{date}}"
+              formControlName="fingreso"
+            ></ion-datetime>
+          </ion-item>
+          <div>
+            <ng-container *ngFor="let item of valMessage['fingreso']">
+              <div
+                class="errorMessage"
+                *ngIf="(hueForm.get('fingreso').dirty || hueForm.get('fingreso').touched) && hueForm.get('fingreso').hasError(item.type)"
+              >
+                {{item.message}}
+              </div>
+            </ng-container>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label position="floating">Fecha de Egreso</ion-label>
+            <ion-datetime
+              size="cover"
+              value="{{date2S}}"
+              presentation="date"
+              min="{{date2S}}"
+              formControlName="fegreso"
+            ></ion-datetime>
+          </ion-item>
+          <div>
+            <ng-container *ngFor="let item of valMessage['fegreso']">
+              <div
+                class="errorMessage"
+                *ngIf="(hueForm.get('fegreso').dirty || hueForm.get('fegreso').touched) && hueForm.get('fegreso').hasError(item.type)"
+              >
+                {{item.message}}
+              </div>
+            </ng-container>
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-button
+        class="ion-margin"
+        (click)="addHuesped()"
+        expand="block"
+        fill="clear"
+        shape="round"
+      >
+        Agregar Huesped
+      </ion-button>
+    </form>
+  </ion-grid>
+</ion-content>

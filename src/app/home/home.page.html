@@ -1,0 +1,17 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Login
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="loginForm">
+  <ion-item>
+    <ion-label position="stacked">Ingrese su token de usuario</ion-label>
+    <ion-input formControlName="pw" color="primary" type="password" ></ion-input>
+  </ion-item>
+  <ion-button fill="outline" shape="round" expand="block" (click)="checkLogin()">Login</ion-button>
+</form>
+</ion-content>
