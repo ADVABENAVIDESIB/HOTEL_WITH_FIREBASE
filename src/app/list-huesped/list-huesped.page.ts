@@ -12,14 +12,23 @@ import { ActivatedRoute } from '@angular/router';
 export class ListHuespedPage implements OnInit {
 
   public huespedes: Huesped[];
-
-  constructor(private hs: HuespedService, private ac: AlertController, private router: Router, 
+  public huesped: Huesped;
+  public id:string;
+   constructor(private hs: HuespedService, private ac: AlertController, private router: Router, 
     private activateroute:ActivatedRoute ) { 
+   /*  
+   este codigo es para mostrar los huespedes pero en arrays
+
     this.huespedes=hs.getAdmins();
     this.activateroute.queryParams.subscribe((params) => {
       this.huespedes = this.hs.getUsers();
-    });
-
+    }); */
+    this.hs.getHuepedes().subscribe(
+      res => {
+        this.huespedes = res;
+        console.log(this.huespedes);
+      }
+    )
   }
 
   public async deleteHuesped(pos:number){
@@ -56,5 +65,16 @@ export class ListHuespedPage implements OnInit {
     this.router.navigate(['/home'], {
     });
   }
+  public getHuespedById(id:string){
+    this.hs.getHuespedById(id).subscribe(item => {
+      this.huesped = item as Huesped
+      console.log(this.huesped);
+    });
+    this.router.navigate(['/view-huesped'],
+    {
+      queryParams:{id:id, huesped:this.huesped}
+    })
 
+    //this.hs.getHuespedById(id);
+  }
 }

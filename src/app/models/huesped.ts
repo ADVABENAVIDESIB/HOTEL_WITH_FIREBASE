@@ -8,4 +8,5 @@ export class Huesped {
     fingreso?: Date;
     fegreso?: Date;
     aporte?: number;
+    id?:string;
 }

@@ -11,9 +11,9 @@
     <ion-col>
       <ion-list>
         <ion-item-sliding *ngFor="let item of huespedes; let i = index">
-          <div style="display: flex;" class="ion-padding" [routerLink]="['/view-huesped', item.nombre]">
+          <div style="display: flex;" class="ion-padding" [routerLink]="['/view-huesped', item.id]">
           
-          <ion-item >
+          <ion-item>
             <ion-label> {{item.nombre}}</ion-label>
             <!--ion-label> {{item.tel}}</!--ion-label-->
           </ion-item>

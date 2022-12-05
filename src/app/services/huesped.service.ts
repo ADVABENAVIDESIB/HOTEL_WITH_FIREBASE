@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Huesped } from '../models/huesped';
+import { map } from 'rxjs/operators'
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
@@ -8,7 +11,8 @@ export class HuespedService {
   private lang: string
   private habsOcupadas:string
   private concatenaHabsOcupadas:string
-  constructor() {
+  constructor(private firestore:AngularFirestore) {
+    // esto es para el codigo estatico
     this.habsOcupadas="";
     this.huespedes = [
       {
@@ -111,4 +115,26 @@ export class HuespedService {
     }
     return false
   }
+//terina codigo para BD estatica (arreglos)
+
+
+  ///inicia codigo para implementar firebase
+  public getHuepedes(): Observable<Huesped[]> {
+    return this.firestore.collection('huespedes').snapshotChanges().pipe(
+      map(actions=> {
+        return actions.map(a=>{
+          console.log(a);
+          const data = a.payload.doc.data() as Huesped;
+          console.log(data);
+          const id = a.payload.doc.id;
+          return { id,...data};
+        })
+      })
+    )
+  }
+  public getHuespedById(id: string) {
+    let result= this.firestore.collection("huespedes").doc(id).valueChanges();
+    return result;
+  }
+
 }//huespedService
