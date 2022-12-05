@@ -136,5 +136,10 @@ export class HuespedService {
     let result= this.firestore.collection("huespedes").doc(id).valueChanges();
     return result;
   }
-
+  public newHuesped(huesped: Huesped) {
+    this.firestore.collection('huespedes').add(huesped);
+  }
+  public removeStudent(id: string){
+    this.firestore.collection("huespedes").doc(id).delete();
+  }
 }//huespedService

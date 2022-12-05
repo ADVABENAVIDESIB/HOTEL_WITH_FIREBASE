@@ -185,8 +185,10 @@ export class NewHuespedPage implements OnInit {
             fingreso: this.newDate(this.hueForm.get("fingreso").value),
             fegreso: this.newDate(this.hueForm.get("fegreso").value)
           }  
-          this.huespedService.addHuesped(this.hue);
+          this.huespedService.newHuesped(this.hue);
+          //FIREBASE
           var elementos = document.getElementsByTagName('input');
+          //FIREBASE
           for (let i = 0; i < elementos.length; i++) {
             elementos[i].value='';          
           }

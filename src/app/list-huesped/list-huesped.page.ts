@@ -31,7 +31,7 @@ export class ListHuespedPage implements OnInit {
     )
   }
 
-  public async deleteHuesped(pos:number){
+  public async removeStudent(id:string){
     const alert = await this.ac.create({
       header: 'Confirmación',
       subHeader: '¿Está seguro que desea eliminar?',
@@ -46,7 +46,7 @@ export class ListHuespedPage implements OnInit {
           text: 'Eliminar',
           role: 'confirm',
           handler: ()=> {
-            this.huespedes = this.hs.deleteHuesped(pos);
+             this.hs.removeStudent(id);
           }
         }
       ]

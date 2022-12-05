@@ -9,10 +9,12 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class Tab2Page implements OnInit {
   public leng: string;
-  public hoy = new Date(Date.now())
+  public hoy = new Date()
   public huesped:Huesped;
+  public huespedes:Huesped[];
+
   public show:boolean;
-  public index: number;
+  public index: string;
   public ingresoAT :string;
   public ingresoA :string;
   public hotelUT :string;
@@ -37,29 +39,57 @@ export class Tab2Page implements OnInit {
     this.aroute.queryParams.subscribe(
       (params)=>{
         this.index = params.index
+       // console.log(this.index+"HOLA TAB2 EN INDEX");
+        
       }
     );
-    console.log('index '+this.index)
-    this.huesped = this.huespedService.getUsers()[this.index]
-    console.log(this.huesped) 
-    console.log(this.huesped.fingreso.getDate())
-    console.log(this.hoy.getDate())
-    console.log(this.huesped.fegreso.getDate())
-
-    if ((this.huesped.fingreso.getDate() <= this.hoy.getDate()) && (this.huesped.fegreso.getDate() >= this.hoy.getDate())) {
-      this.show=true
-      this.leng='es'
-      this.pagototal=this.daydiff(this.huesped.fingreso,this.huesped.fegreso);
-      console.log("lo de daydiff pago total"+this.pagototal);
-      this.checkLanguage()
-
-      
     
-    } else {
-      this.show=false
-    }
 
+    this.huespedService.getHuespedById(this.index).subscribe(item => {
+      this.huesped = item as Huesped
+      console.log(this.huesped.nombre);
+      
+
+
+          //this.huesped = this.huespedService.getUsers()[this.index]
+    console.log(this.huesped.nombre) 
+    // console.log(this.huesped.fingreso.getDate())
+    console.log(this.hoy.getDate())
+    // console.log(this.huesped.fegreso.getDate())
+
+    var fecha = this.numeroAFecha(new Date(this.huesped.fingreso), false);
+    var fecha2=new Date(this.huesped.fingreso);
+     if ((fecha2 == this.hoy)) {
+       this.show=true
+       this.leng='es'
+       this.pagototal=this.daydiff(this.huesped.fingreso,this.huesped.fegreso);
+       console.log("lo de daydiff pago total"+this.pagototal);
+       this.checkLanguage()
+ 
+       
+     
+     } else {
+      
+      
+      console.log("no entro crack");
+      var date= new Date(this.huesped.fingreso);
+      console.log( fecha2+"==" +this.hoy);
+      
+       this.show=false
+     }
+    })
   }//ngOnInit
+  public numeroAFecha(numeroDeDias, esExcel = false) {
+    var diasDesde1900 = esExcel ? 25567 + 1 : 25567;
+    //console.log(new Date((numeroDeDias - diasDesde1900) * 86400 * 1000)+"chale");
+    // 86400 es el número de segundos en un día, luego multiplicamos por 1000 para obtener milisegundos.
+    return new Date((numeroDeDias - diasDesde1900) * 86400 * 1000);
+  }
+  
+ 
+
+
+
   public changeLang(l:string){
     this.leng=l
     this.checkLanguage()
