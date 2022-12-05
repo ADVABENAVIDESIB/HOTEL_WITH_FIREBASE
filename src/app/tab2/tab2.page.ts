@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Huesped } from '../models/huesped';
 import { HuespedService } from '../services/huesped.service';
 import { ActivatedRoute } from '@angular/router';
+import { Timestamp } from 'rxjs';
 @Component({
   selector: 'app-tab2',
   templateUrl: 'tab2.page.html',
@@ -9,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class Tab2Page implements OnInit {
   public leng: string;
-  public hoy = new Date()
+  public hoy = new Date();
   public huesped:Huesped;
   public huespedes:Huesped[];
 
@@ -59,7 +60,7 @@ export class Tab2Page implements OnInit {
 
     var fecha = this.numeroAFecha(new Date(this.huesped.fingreso), false);
     var fecha2=new Date(this.huesped.fingreso);
-     if ((fecha2 == this.hoy)) {
+     if (true) {
        this.show=true
        this.leng='es'
        this.pagototal=this.daydiff(this.huesped.fingreso,this.huesped.fegreso);
@@ -70,10 +71,11 @@ export class Tab2Page implements OnInit {
      
      } else {
       
-      
-      console.log("no entro crack");
-      var date= new Date(this.huesped.fingreso);
-      console.log( fecha2+"==" +this.hoy);
+      let minDate: any = new Date().toISOString();
+      console.log("no entro crack"+ minDate);
+
+      var date= new Date((this.huesped.fingreso));
+      console.log(date+"==" +this.hoy);
       
        this.show=false
      }
